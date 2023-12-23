@@ -55,3 +55,16 @@ jobs:
       run: terraform apply -auto-approve
       working-directory: ./terrafrom
       
+    - name: Save Terraform State
+      run: |
+        echo "::set-output name=state::$(terraform show -json)"
+      id: terraform_state
+
+    - name: Upload Terraform State
+      uses: actions/upload-artifact@v2
+      with:
+        name: terraform-state
+        path: ${{ steps.terraform_state.outputs.state }}
+
+
+
