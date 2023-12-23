@@ -38,5 +38,5 @@ jobs:
     
     - name: Terraform Init
       run: terraform init
-      working-directory: /terrafrom
+      working-directory: ./terrafrom
       
