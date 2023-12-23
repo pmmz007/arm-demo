@@ -56,6 +56,6 @@ jobs:
       working-directory: ./terrafrom
 
     - name: Show Terrafrom State
-      shell: terrafrom state show
+      run: terrafrom state show
       
 
