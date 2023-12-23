@@ -37,6 +37,10 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v3
+
+    # - name: List files in the directory
+    #   run: |
+    #     ls ${{ github.workspace }}
           
     - name: HashiCorp - Setup Terraform
       uses: hashicorp/setup-terraform@v3.0.0
@@ -57,5 +61,6 @@ jobs:
 
     - name: Show Terrafrom State
       run: terraform state list
+      working-directory: ./terrafrom
       
 
