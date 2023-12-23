@@ -14,26 +14,26 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-        TF_VAR_client_id  : ${{ secrets.TF_client_id }}
-        TF_VAR_client_secret  : ${{ secrets.TF_client_secret}}
-        TF_VAR_tenant_id : ${{ secrets.TF_tenant_id }}
-        TF_VAR_subscription_id : ${{ secrets.TF_subscription_id}}
+        TF_VAR_client_id  : ${{ secrets.AZURE_CLIENT_ID }}
+        TF_VAR_client_secret  : ${{ secrets.AZURE_CLIENT_SECRET}}
+        TF_VAR_tenant_id : ${{ secrets.AZURE_TENANT_ID }}
+        TF_VAR_subscription_id : ${{ secrets.AZURE_CLIENT_ID}}
         
 
  
     steps:
 
-    - name: Azure Login
-      uses: Azure/login@v1.5.1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    # - name: Azure Login
+    #   uses: Azure/login@v1.5.1
+    #   with:
+    #     creds: ${{ secrets.AZURE_CREDENTIALS }}
         
-    -  name: Azure CLI Action
-       uses: Azure/cli@v1.0.9
-       with:
-        azcliversion: latest
-        inlineScript: |
-          az account list -o table
+    # -  name: Azure CLI Action
+    #    uses: Azure/cli@v1.0.9
+    #    with:
+    #     azcliversion: latest
+    #     inlineScript: |
+    #       az account list -o table
 
     - name: Checkout
       uses: actions/checkout@v3
