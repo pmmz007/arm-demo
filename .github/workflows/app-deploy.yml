@@ -52,10 +52,10 @@ jobs:
       working-directory: ./terrafrom
 
     - name: Terraform Apply & Approve
-      run: terraform destroy -auto-approve
+      run: terraform apply -auto-approve
       working-directory: ./terrafrom
 
     - name: Show Terrafrom State
-      run: terraform state show
+      run: terraform state list
       
 
